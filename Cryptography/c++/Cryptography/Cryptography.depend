@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1732707204 source:/home/vbk1212/Desktop/Cryptography/c++/Cryptography/main.cpp
+	<iostream>
+	"numbertheory.h"
+
+1732557158 /home/vbk1212/Desktop/Cryptography/c++/Cryptography/numbertheory.h
+	<iostream>
+

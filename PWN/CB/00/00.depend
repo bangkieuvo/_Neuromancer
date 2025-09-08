@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1756488316 source:/home/vbk1212/Storage/PWN/CB/00/src.cpp
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
