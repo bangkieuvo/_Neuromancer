@@ -21,7 +21,7 @@ _start:
 		mov rsi,msg_bang
 		mov rdx,msg_bang_len
 		syscall
-	mov rax,17
+	mov rax,14
 	;mov rbx,2
 	;mul rbx
 	;div rbx
@@ -49,17 +49,7 @@ _start:
 		jnz itoa_loop
 	
 	inc rdi
-
-    
-    ; ===== In độ dài =====
-    mov rax, 1
-    mov rsi, rdi
-    mov rdi, 1
-    mov rdx, buffer_len + 20   ; rdx = địa chỉ outbuf + 20
-	sub rdx, rdi           ; rdx = rdx - rdi
-
-    syscall
 	
-	mov rax,60
-	mov rdi,0
+   	mov rax, 60
+	mov rdi, 0
 	syscall

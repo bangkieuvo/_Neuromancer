@@ -27,7 +27,7 @@ class RSA():
 		for i in range(0, len(ciphertext), 2):
 		    c = int.from_bytes(ciphertext[i:i+2], 'big')  # đọc lại số nguyên
 		    m = pow(c, key[0], key[1])        # RSA decrypt
-		    plaintext += bytes([m]) 
+		    plaintext += m.to_bytes((m.bit_length() + 7) // 8, byteorder="big") 
 		return plaintext  
 # rsa = RSA()
 # key = rsa.genKey()
@@ -50,4 +50,16 @@ class RSA():
 #     plaintext += bytes([m])    
 # print("plaintext: ",plaintext)
 		
-# 		
+s = "Hell0 B4ng Ki3u"
+rsa = RSA()
+key = rsa.genKey()
+print(key)
+public_key, private_key = key[0],key[1]
+ciphertext = rsa.encrypt(s,public_key)
+ciphertext_2 = rsa.encrypt(s,private_key)
+plaintext = rsa.decrypt(ciphertext,private_key)
+plaintext_2 = rsa.decrypt(ciphertext_2,public_key)
+print(ciphertext)
+print(plaintext)	
+print(ciphertext_2)
+print(plaintext_2)

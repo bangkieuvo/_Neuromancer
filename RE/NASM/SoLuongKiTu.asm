@@ -1,33 +1,40 @@
 section .bss
 	string_buffer resb 256
-	string_len_buffer resb 20
+	string_buffer_len resb 20
+	
 section .data
 	msg db "Nhập vào chuỗi:",10
-	msg_len equ $ - msg
+	msg_len equ $ - msg	
+	
 	_MAX_STRING_LENGTH equ 256
+	
 section .text
 	global _start
 
 _start:
+
+	;print msg 
 	mov rax,1
 	mov rdi,1
 	mov rsi,msg
 	mov rdx, msg_len
 	syscall
 	
+	;read string_buffer 
 	mov rax,0
 	mov rdi,0
-	mov rsi,string_buffer
+	mov rsi, string_buffer
 	mov rdx, _MAX_STRING_LENGTH
 	syscall
 	
-	mov rcx, rax
+	
+	mov rcx, rax	
 	dec rcx
 	
 	mov rax,1
 	mov rdi,1
 	mov rsi,string_buffer
-	mov rdx,_MAX_STRING_LENGTH
+	mov rdx, _MAX_STRING_LENGTH
 	syscall
 	
 	
